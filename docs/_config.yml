@@ -1,0 +1,10 @@
+title: My Docs
+description: Notes, guides, and documentation
+markdown: kramdown
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+exclude:
+  - README.md

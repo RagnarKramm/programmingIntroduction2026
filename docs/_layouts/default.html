@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }} · {{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <aside>
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+      <p>{{ site.description | escape }}</p>
+      <nav aria-label="Documentation">
+        {% assign docs = site.pages | sort: 'nav_order' %}
+        {% for doc in docs %}
+          {% if doc.title and doc.nav_order %}
+            <a href="{{ doc.url | relative_url }}" {% if page.url == doc.url %}aria-current="page"{% endif %}>{{ doc.title | escape }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    </aside>
+    <main id="content">{{ content }}</main>
+  </body>
+</html>
