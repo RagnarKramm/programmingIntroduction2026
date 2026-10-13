@@ -24,6 +24,8 @@ Continue the greeting function you explored in Lesson 1. Make it welcome a name 
 
 ## Starter: recover your greeting
 
+<a href="{{ '/intermediates/HelloScript.py' | relative_url }}" download="HelloScript.py">Download the baseline script (HelloScript.py)</a> if you need a starting file. Save it to your course folder and open it in your Python editor.
+
 Open your Lesson 1 file in the classroom Python editor and run it. Change its fixed name and run again. Keep familiar function and variable names if your starter differs from this example.
 
 If your file is unavailable, ask for help and use this recovery starter:
