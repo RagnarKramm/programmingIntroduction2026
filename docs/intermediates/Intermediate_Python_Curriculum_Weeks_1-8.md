@@ -1,10 +1,10 @@
 # Intermediate Python Curriculum Weeks 1 to 8
 
-Editable teacher planning document · Version 1.0 · 4 October 2026
+Editable teacher planning document · Version 1.1 · 13 October 2026
 
 This document plans the first eight lessons of a 32-lesson after-school programming course for 12 students aged 10–13. Lessons last 60 minutes and happen weekly. Students previously learned block programming with another teacher; their individual confidence with variables, conditions and loops is not yet known. We teach in Estonian, write code in English, and use short interactive programs to connect familiar ideas to Python.
 
-By the end of this module, students should be able to build and test a small text game using input, output, variables, arithmetic, conditions, loops and simple functions. Lists, dictionaries, broader string processing and larger projects follow in later modules. No required homework or formal exams are planned. Weeks 4 and 8 provide evidence for adjusting the course.
+By the end of this module, students should be able to build and test a small interactive program using input, output, variables, arithmetic, conditions and simple functions, with fixed-count repetition if ready. Condition-controlled loops and returned values move to the next module unless readiness allows an optional introduction. Lists, dictionaries, broader string processing and larger projects follow in later modules. No required homework or formal exams are planned. Weeks 4 and 8 provide evidence for adjusting the course.
 
 ## How to use and revise this document
 
@@ -56,111 +56,85 @@ Teach the help request: “I expected …; it did …; I tried …”. Read the 
 
 The examples use standard Python 3 syntax and avoid platform-specific packages. Numeric tasks initially assume valid integer input. This is a deliberate scope limit: do not silently require students to handle every invalid input before teaching validation or exceptions. Prompt text and creative output are flexible unless a selected judge exercise requires exact output.
 
+## Revision based on completed Lesson 1
+
+**Teacher feedback:** Students reached opening their first script file and editing the initial Hello World function to say their name. This introduced creating a function, calling it, passing function inputs and setting a variable. The planned multi-input mission briefing was not reached. The number of students independently confident with each idea and the saving workflow are not yet recorded.
+
+Treat these ideas as introduced, then check each student's understanding in Lesson 2. A value passed to a function is an argument; the name in its definition is a parameter. This does not establish that students have used keyboard `input()`. Lesson 2 explicitly bridges the two. The Week 1 teacher reference remains the original intended plan; this record describes what actually happened.
+
+Keep the environment used successfully in Lesson 1. The platform section above records earlier options, not confirmation that a particular service or cloud workflow was used. Before Lesson 2, test reopening students' files and keyboard input in that environment. Update the platform decision with the actual route once confirmed.
+
 ## The eight lesson sequence
 
 | Week | Project | Main idea | Evidence of progress |
 |---|---|---|---|
-| 1 | Mission briefing generator | Strings, variables, input and print | Traces an input into output |
-| 2 | Space shop | Integer conversion and arithmetic | Predicts totals and remaining credits |
-| 3 | Airlock security | Comparisons and if elif else | Tests all decision branches |
-| 4 | Three-question quiz | Review and debugging | Explains scoring and repairs a bug |
-| 5 | Dice arena | for, range and randomness | Predicts loop count and score updates |
-| 6 | Guess the number | while and changing loop state | Explains when and why a loop stops |
-| 7 | Reusable game tools | Functions, parameters and return | Calls a function with different inputs |
-| 8 | Python game showcase | Plan, combine, test and refactor | Demonstrates a game and a tested improvement |
+| 1 — completed | Personalised Hello World | Open/edit a script; variable; function definition, argument and call introduced | Teacher reports a greeting changed to the student's name; individual independence still to check |
+| 2 | Interactive greeting | Consolidate functions and variables; introduce keyboard input | Traces an answer into a variable, argument, parameter and printed greeting |
+| 3 | Space shop | Integer conversion, multiplication and subtraction | Checks totals for quantities 0, 2 and 4 |
+| 4 | Airlock security | Two-way decisions; checkpoint on weeks 1–3 | Tests correct and incorrect passwords and explains the branch |
+| 5 | Mini quiz and repair workshop | Consolidate conditions and changing score | Tests all-correct and all-wrong answers; explains a score update |
+| 6 | Countdown and repeated greetings | Fixed-count repetition with for/range | Predicts number of calls and tests a different count |
+| 7 | Three-round quiz | Combine a known loop, input and conditions | Explains what happens once and what repeats; checks final score |
+| 8 | Small interactive showcase | Finish, test and explain a familiar project | Demonstrates a working program and a tested change |
 
-## Week 1 Mission briefing generator
+Functions that print remain familiar tools throughout. `return`, `while`, randomness, `and`/`or`, and division/remainder are deferred rather than compressed into later lessons. Introduce optional syntax only after a short demonstration and secure core work. No required homework.
 
-**Learning objective:** Write and modify a short program using `print()`, `input()` and string variables. Connect “set name to …” in blocks to assignment in Python. Assess prior knowledge through predictions rather than a formal test.
+## Week 1 Personalised Hello World — completed record
 
-**Hook:** Type a player's name and a planet; the program announces a ridiculous space mission. Ask where the typed text appears in the code.
+**Original intention:** Mission briefing using keyboard input and output; see the unchanged [Week 1 teacher reference](Intermediate_Week_1_Teacher_Reference.md).
 
-**Prepare:** A working runner, cloud folder and this tiny starter. Keep a second version with one missing quote for debugging after students have a working result.
+**Actual reach:** Opening the first script and personalising the initial Hello World function. Function creation, function calls, function inputs and variable assignment were introduced. Do not retrospectively count the planned briefing as completed or assume independent mastery.
+
+**Follow-up evidence to collect:** Can each student reopen and run their file, change a value, identify the definition and call, and predict the greeting? Was the latest version saved and recoverable? Date ___ · Present ___/12 · Independent explanations ___/12 · Actual filename/platform ___ · Saving issues ___
+
+## Week 2 Interactive greeting
+
+**Objective:** Reopen and run a script; explain definition versus call and variable versus quoted text; read one keyboard answer and pass it to a greeting function. Use the detailed [Week 2 teacher reference](Intermediate_Week_2_Teacher_Reference.md).
+
+**Prepare:** The actual Lesson 1 starter, a recovery copy, a tested input route and save route. The example below is a planning model, not a claim about the exact starter used.
 
 ```python
-name = input("Pilot name: ")
-print("Welcome aboard,", name)
+def greet(name):
+    print("Hello,", name)
+
+player_name = input("Your name: ")
+greet(player_name)
 ```
 
-### The 60 minute plan
+**60 minutes:** 0–10 reopen/run and change a fixed name; 10–20 trace variable → argument → parameter → output, then make a second call; 20–30 demonstrate one `input()` and let students run it; 30–45 Mission and optional extensions; 45–52 partner tests and one bug repair; 52–57 individual explanation; 57–60 save and reopen. If file access takes longer, drop extensions and protect saving.
 
-- **0–5:** Demo the personalised briefing. Ask students to identify an input and an output; note who remembers variables from blocks.
-- **5–12:** Students run the starter, then change its message. Explain quotes, parentheses, assignment and commas in `print` through these changes. First win: their own name in the output.
-- **12–30:** Build the Mission in stages: one input, two inputs, three-line briefing. Introduce `#` comments only as optional notes, not a separate exercise.
-- **30–50:** Ladder work. At minute 40, pairs swap predicted output and test it. Circulate with one variable-tracing question per student.
-- **50–57:** Repair the missing-quote example. Show that variable names are case-sensitive and strings need quotes.
-- **57–60:** Save and reopen the cloud copy. Resolve access problems before extensions.
+**Ladder:** Mission — one keyboard name passed to `greet`, tested with two names. Upgrade — call the same function twice with two separately collected names. Challenge — demonstrate a second parameter, then create `briefing(name, destination)` and print two lines. Boss — reuse that function for two travellers and predict which output changes when one destination changes.
 
-### Student challenge ladder
+**Tests:** `Ada`, then `Liis Mari`, must appear in the greeting; no old name remains. **Hints:** Definition alone does not print; call after the definition. Body is indented, call is at the left edge. `greet("player_name")` passes literal text. **Recovery:** Start with a fixed-name call and provide the input line when ready. Paper backup: pass named value cards to a greeting station.
 
-- **Mission:** Ask for a pilot name and destination, then print a three-line briefing using both answers. Success: changing either answer changes the correct part of the briefing.
-- **Upgrade:** Ask for a companion's name and include it in another sentence.
-- **Challenge:** Create two different briefings from the same three answers. Reuse variables rather than asking the same questions again.
-- **Boss:** Build an interactive story introduction with four inputs and a coherent result. A partner should be able to identify which variable produced each personalised detail.
+**Exit:** Point to definition, call, variable and parameter; explain where the typed answer goes. Save `I_W02_InteractiveGreeting_ID.py`. **Record:** Mission ___/12 · Independent trace ___/12 · Input/access issues ___ · Week 3 repair needed ___
 
-**Tests:** Inputs `Ada` and `Mars` should appear in their intended places. A name containing a space should be accepted as text. Try a different destination and verify that no old destination remains hard-coded.
+## Week 3 Space shop
 
-**Likely mistakes and hints:** `Name` and `name` differ. `print(name)` prints a value; `print("name")` prints the word. A missing quote or parenthesis causes a syntax error. If `input` seems stuck, check the runner's input field rather than repeatedly rerunning.
-
-**Support and backup:** Supply the first two lines and ask the student to add one input and one output. During an outage, one partner acts as the program, collecting input cards and inserting them into a printed briefing.
-
-**Exit evidence:** Explain one assignment and predict the result of changing its input. Save `I_W01_MissionBriefing_ID.py`. Optional mission: invent a new briefing theme.
-
-**Resources:** [Python built-in functions](https://docs.python.org/3/library/functions.html) for teacher reference on `input` and `print`; [Raspberry Pi About Me](https://projects.raspberrypi.org/en/projects/about-me) as an optional related creative project. The Raspberry Pi page needs JavaScript; rehearse access and disregard any legacy environment setup that conflicts with our tested workflow.
-
-**Teaching record:** Date ___ · Mission completed ___/12 · Prior knowledge observed ___ · Access/save issues ___ · Week 2 adjustment ___
-
-## Week 2 Space shop
-
-**Learning objective:** Convert numeric input with `int()` and use variables and arithmetic to calculate a total and remaining balance. Prerequisite: input, output and assignment.
-
-**Hook:** A shop has 20 credits and batteries cost 3 credits each. Ask what happens if the customer buys four. Then show the bug where text `"4"` is repeated rather than multiplied numerically.
-
-**Prepare:** The starter below and one broken version without `int`. Introduce `+`, `-`, `*`, `/`, `//` and `%` with one small result each; the Mission uses only multiplication and subtraction. Explain that `//` and `%` extensions use nonnegative whole numbers here.
+**Objective:** Convert text to an integer and calculate a total with `*` and balance with `-`. Prerequisite: one working input/output program. Start with fixed quantity if input still needs repair. Teach only the operators needed today.
 
 ```python
 credits = 20
 price = 3
-quantity = int(input("How many batteries? "))
+quantity_text = input("How many batteries? Enter a whole number: ")
+quantity = int(quantity_text)
 total = price * quantity
 remaining = credits - total
 print("Total:", total)
 print("Credits left:", remaining)
 ```
 
-### The 60 minute plan
+**60 minutes:** 0–10 greeting retrieval/repair; 10–20 predict fixed quantity 4, then show separate input and conversion lines; 20–35 Mission in two stages (total, balance); 35–48 ladder and paired calculations; 48–57 compare text `"4"` with number `4`, collect explanations; 57–60 save/reopen.
 
-- **0–5:** Demo the space shop and predict a four-item purchase.
-- **5–12:** Run with quantity 2, then 4. Compare `input()` text with `int(input())`. First win: a correct calculated bill.
-- **12–30:** Mission wins: read quantity, calculate total, calculate balance. Students explain the values after each line.
-- **30–50:** Ladder. Partners calculate an expected result on paper before running the same input.
-- **50–57:** Fix the missing-conversion bug. Discuss a negative balance as useful information; automatic purchase rejection belongs to next week's conditions.
-- **57–60:** Save and reopen.
+**Ladder:** Mission — total and balance for one product. Upgrade — change price and predict the result. Challenge — add a second product and combine totals with `+` after modelling it. Boss — let the user choose the starting budget and test an overspend. No purchase rejection yet.
 
-### Student challenge ladder
+**Tests:** Quantities 0, 2, 4 give total/balance 0/20, 6/14, 12/8; 7 gives 21/-1. A negative balance is useful output. **Hints:** `"4" * 3` repeats text; `4 * 3` calculates. Require valid nonnegative whole-number quantities; exceptions/validation are deferred. **Recovery:** Supply input/conversion and prices; student writes the total line. Paper backup: value cards and bills.
 
-- **Mission:** Produce the total and remaining credits for a battery purchase. Success: quantity 4 gives total 12 and balance 8; quantity 0 gives total 0 and balance 20.
-- **Upgrade:** Add a second product with its own price and quantity. Print a combined total and balance.
-- **Challenge:** For a nonnegative credit amount and positive price, calculate the maximum number of items using `//` and the unused credits using `%`. Test 20 credits at a price of 3: six items and two credits left.
-- **Boss:** Create a supply planner for two products and a starting budget supplied by the user. Show both item totals and the remaining budget. Write three tests, including one overspend, and explain all calculations without adding conditions yet.
+**Exit:** Explain why `int` is needed and predict quantity 3. Save `I_W03_SpaceShop_ID.py`. **Record:** Mission ___/12 · Conversion understood ___ · Arithmetic support ___ · Week 4 repair ___
 
-**Likely mistakes and hints:** Text multiplied by an integer repeats text; check conversion. Negative results are not necessarily a code bug. A string in a numeric calculation can cause `TypeError`. `int("two")` raises `ValueError`; today require integer input and explain that validation comes later.
+## Week 4 Airlock security — first checkpoint
 
-**Support and backup:** Supply `int(input(...))` and the prices; ask the student to write only total and balance lines. For an outage, calculate bills using variable cards and compare a textual “4” with a numeric 4.
-
-**Exit evidence:** Ask why conversion is needed and trace quantity 3. Save `I_W02_SpaceShop_ID.py`. Optional mission: invent prices and manually check one purchase.
-
-**Resource:** [Python introduction](https://docs.python.org/3/tutorial/introduction.html), specifically numbers and text. Use it for reference and selected examples; it is not a child-facing worksheet to read in full.
-
-**Teaching record:** Date ___ · Mission completed ___/12 · Conversion understood ___ · Arithmetic gaps ___ · Next adjustment ___
-
-## Week 3 Airlock security
-
-**Learning objective:** Compare values and select an outcome with `if`, `elif` and `else`. Use `and` and `or` when combining rules. Prerequisite: strings, integer conversion and variables.
-
-**Hook:** Try to enter a space station with different clearance levels and passwords. Ask why one visitor gets a different message from another.
-
-**Prepare:** This small two-branch starter. Later demonstrate `elif`, `>=`, `and` and `or` through one example each before students use them in extensions. Connect a block-programming if block to Python's colon and indented body.
+**Objective:** Choose one of two outcomes with `if`, `else` and `==`. Strings suffice; numeric clearance and compound conditions are not required.
 
 ```python
 password = input("Password: ")
@@ -170,39 +144,19 @@ else:
     print("Access denied")
 ```
 
-### The 60 minute plan
+**60 minutes:** 0–12 reopen and check one input trace and one Week 3 calculation; 12–22 model correct/incorrect password and indentation; 22–37 Mission; 37–48 ladder and two-branch tests; 48–57 individual checkpoint and repair; 57–60 save/reopen.
 
-- **0–5:** Demo the two outcomes and ask for predictions with `moon` and `sun`.
-- **5–12:** Run the starter, change the password and trace the selected branch. First win: two correctly different outcomes. Explain `=` versus `==` and four-space indentation.
-- **12–30:** Build the Mission; then demonstrate a three-outcome clearance check. Keep guided examples short and let students run after each branch is added.
-- **30–50:** Ladder and paired tests covering each branch. Provide a small truth table for the combined condition.
-- **50–57:** Bug hunt: an input integer compared with a text number, or a missing colon. Students explain their correction.
-- **57–60:** Save with three test inputs noted in comments or the class record.
+**Ladder:** Mission — password door with one result per run. Upgrade — change password and messages, test both outcomes. Challenge — after modelling `>=`, add a separate numeric clearance checker. Boss — put the password decision in `check_password(password)` and call it with two values; no return needed.
 
-### Student challenge ladder
+**Tests:** `moon` opens; `sun` and `Moon` deny. **Hints:** `=` assigns; `==` compares. Colon and indentation form a branch. **Recovery:** Supply the full branch skeleton, ask for a changed password and predictions. Paper backup: sort password cards.
 
-- **Mission:** Ask for a password and print exactly one appropriate access message. Success: correct and incorrect passwords take different branches.
-- **Upgrade:** Ask for numeric clearance. Permit entry only when clearance is at least 2 **and** password is correct. Test all four combinations of sufficient/insufficient clearance and correct/incorrect password.
-- **Challenge:** Make three outcomes: clearance below 2 gives “Training required”; otherwise a correct password opens the door; otherwise say “Wrong password”. Use `if/elif/else` and test each route.
-- **Boss:** Design a station rule with a normal-entry route and an emergency route using `and`/`or`, with explicit messages. Write the rule in plain language first, then test cases that prove each route works and an unauthorised visitor is rejected. Use parentheses to show grouping when needed.
+**Checkpoint:** Independently trace input and a greeting call, explain one calculation and both branches. If fewer than about 9 of 12 can explain the Mission, make Week 5 a repair workshop with one question and postpone loops if necessary. Record observations rather than a grade.
 
-**Likely mistakes and hints:** `=` assigns while `==` compares. A branch without indentation cannot form its intended body. Several independent `if` statements may print several outcomes; choose an exclusive chain when only one outcome is intended. Check types before changing the comparison.
+**Exit:** Explain why only one message prints. Save `I_W04_AirlockSecurity_ID.py`. **Record:** Mission ___/12 · Input/functions ___ · Arithmetic ___ · Branches ___ · Week 5 priorities ___
 
-**Support and backup:** Use only the two-branch password starter, then add a clearance check with help. In an outage, students sort visitor cards into outcomes and turn the sorting rule into pseudocode.
+## Week 5 Mini quiz and repair workshop
 
-**Exit evidence:** Trace one allowed and one denied entry. Save `I_W03_AirlockSecurity_ID.py`. Optional mission: invent a security policy and three visitor cards.
-
-**Resource:** [Python control flow tutorial](https://docs.python.org/3/tutorial/controlflow.html), focusing on `if` statements. The airlock brief and test cases are original classroom tasks.
-
-**Teaching record:** Date ___ · Mission completed ___/12 · Branch explanations ___ · Indentation/type issues ___ · Week 4 adjustment ___
-
-## Week 4 Three question quiz
-
-**Learning objective:** Combine inputs, variables, arithmetic and conditions in a complete small program; debug wrong results systematically. No new construct is required. Loops are intentionally not required yet.
-
-**Hook:** Show a quiz that always ends with score 1. Ask what evidence would show that the scoring rule is wrong.
-
-**Prepare:** Three questions with fixed expected answers and a bug version using `score = 1` after each correct answer. Include a second bug where `input()` text is compared with integer 7. Keep a one-question working starter.
+**Objective:** Practise input, conditions and score updates without a new control construct. Begin with one question; a two-question quiz is the target when ready.
 
 ```python
 score = 0
@@ -215,209 +169,73 @@ else:
 print("Score:", score)
 ```
 
-### The 60 minute plan
+**60 minutes:** 0–12 checkpoint-led repair; 12–22 model score before/after; 22–37 Mission; 37–48 ladder; 48–57 test and debug; 57–60 save/reopen.
 
-- **0–5:** Run the faulty scoring demo. Predict the score for three correct answers.
-- **5–12:** Model expected result, actual result, suspect line, one change and retest. Repair assignment versus score increment.
-- **12–30:** In pairs, repair one supplied bug, switch roles, then each student builds their own three-question quiz.
-- **30–50:** Ladder and teacher checkpoint conversations. Test an all-correct run and an all-wrong run before personalising further.
-- **50–57:** Share one bug and its evidence. Ask each student one tracing question, including students who worked with a stronger partner.
-- **57–60:** Save code and test notes.
+**Ladder:** Mission — one question, score 1 for correct and 0 otherwise. Upgrade — add a second question; initialise score only once. Challenge — add a third and test mixed answers. Boss — add a familiar printing function for a personalised final message; pass name and score as two parameters after a demonstration.
 
-### Student challenge ladder
+**Tests:** Two-question version: both correct → 2; both wrong → 0; one correct → 1. **Hints:** `score = 1` replaces rather than accumulates; compare text answer with `"7"`. Keep the final print outside branches. **Recovery:** One question is a complete Mission. Paper backup: trace score cards after each answer.
 
-- **Mission:** Ask three questions, give feedback for each, and show a final score from 0 to 3. Success: all correct gives 3, all wrong gives 0 and a mixed run gives the expected score.
-- **Upgrade:** Give a final message for score 3, score 1–2, and score 0 using an exclusive branch chain.
-- **Challenge:** Award different points for the questions and show the possible maximum. Update the tests so they reflect the new scoring rule.
-- **Boss:** Design a quiz that recommends one of three fictional explorer roles using the score. A partner runs it and you explain the thresholds, including an exact-boundary score.
+**Exit:** Explain `score = score + 1`. Save `I_W05_MiniQuiz_ID.py`. **Record:** Mission ___/12 · Score explanations ___ · Ready for fixed-count loops ___ · Repair next week ___
 
-**Checkpoint questions:** What type does `input()` return? Why initialise score before questions? What is the difference between setting and increasing score? Which test disproved the bug? Record seen, with help, or independent for each student.
+## Week 6 Countdown and repeated greetings
 
-**Likely mistakes and hints:** Score is reset between questions; move initialisation before the first. Feedback is outside the intended branch; check indentation. A numeric answer can be compared as text (`"7"`) or converted and compared as a number (7), but not mixed accidentally. Copying a question can leave an old expected answer behind.
-
-**Support and backup:** Supply three question prompts but leave the conditions and updates to the student. During an outage, trace a printed quiz with answer cards and score tokens.
-
-**Exit evidence:** Save `I_W04_Quiz_ID.py` with three input/output test records. Optional mission: create one new question and its expected answer.
-
-**Resources:** [Python input and print reference](https://docs.python.org/3/library/functions.html) and [control flow tutorial](https://docs.python.org/3/tutorial/controlflow.html). If using a judged exercise as a side task, choose and rehearse a relevant accessible input/condition exercise; the creative quiz itself uses manual tests.
-
-**Teaching record:** Date ___ · Mission completed ___/12 · Independent tracing ___ · Concepts to revisit ___ · Week 5 changes ___
-
-## Week 5 Dice arena
-
-**Learning objective:** Use a `for` loop and `range()` for a fixed number of rounds, update an accumulator, and generate random integers. Prerequisite: variables, arithmetic and conditions.
-
-**Hook:** Run a five-round dice duel. Ask whether we need five copies of the same code and why the result changes between runs.
-
-**Prepare:** Starter below. Explain that `import random` makes the module available; `randint(1, 6)` includes both endpoints. The starter's `range(3)` runs three times. Show `round_number + 1` to label rounds without teaching lists.
+**Objective:** Repeat a familiar action a fixed number of times with `for` and `range`. No randomness or new game rules. Proceed only after basic branches and variables are secure; otherwise repeat Week 5 with changed questions.
 
 ```python
-import random
+def greet(name):
+    print("Hello,", name)
 
-total = 0
+player_name = input("Your name: ")
 for round_number in range(3):
-    roll = random.randint(1, 6)
-    total = total + roll
-    print("Round", round_number + 1, "roll", roll)
-print("Total:", total)
+    greet(player_name)
+print("Finished")
 ```
 
-### The 60 minute plan
+**60 minutes:** 0–10 retrieve/repair; 10–20 compare three calls with one loop; 20–35 Mission; 35–48 extensions and predictions; 48–57 trace indentation and count; 57–60 save/reopen.
 
-- **0–5:** Demo the duel and ask which statements should repeat.
-- **5–12:** Run the starter. Change three rounds to five and predict line count. First win: three visible rolls and their total.
-- **12–30:** Build the Mission and verify the final print is outside the loop. Temporarily use `roll = 2` to test the total deterministically, then restore randomness.
-- **30–50:** Ladder. Demonstrate a player and computer roll, with `if/elif/else` deciding a win, loss or draw. Partners trace score updates.
-- **50–57:** Discuss how to test random programs: fixed temporary values for logic and repeated runs to check allowed ranges. A few runs cannot prove fairness.
-- **57–60:** Save the version with randomness restored.
+**Ladder:** Mission — greet three times and print Finished once. Upgrade — change count to 5 and explain the change. Challenge — print round labels using `round_number + 1`, model zero-based values first. Boss — demonstrate `range(3, 0, -1)` for a 3, 2, 1 launch countdown and explain why 0 is excluded.
 
-### Student challenge ladder
+**Tests:** Counts 3, 1, 0 give that many greetings and one Finished each. **Hints:** `range(3)` supplies 0, 1, 2; indented statements repeat, later top-level statements do not. **Recovery:** Teacher supplies loop header; student predicts and changes count. Paper backup: repeat a greeting station three times.
 
-- **Mission:** Roll a die five times, print each round and print the total once at the end. Success: exactly five round lines; every value is 1–6; total matches their sum.
-- **Upgrade:** Roll for player and computer each round; print win, loss or draw for all five rounds.
-- **Challenge:** Keep separate win scores for the two players and announce the overall result after five rounds. Draws do not increase either win score.
-- **Boss:** Give the user a choice of 3, 5 or 7 rounds. Reject other numeric choices with a message; use the loop only for an allowed value. Test a draw and each overall winning route with fixed temporary rolls, then restore `randint`.
+**Exit:** Identify what repeats and what happens once. Save `I_W06_RepeatedGreetings_ID.py`. **Record:** Mission ___/12 · Loop count explained ___ · Indentation issues ___ · Week 7 readiness ___
 
-**Likely mistakes and hints:** Score reset inside the loop never accumulates. Final result inside the loop prints repeatedly. `range(5)` yields 0–4, so display `round_number + 1`. Random results make a bug hard to reproduce; replace rolls temporarily with known numbers rather than repeatedly hoping for the right case.
+## Week 7 Three-round quiz
 
-**Support and backup:** Give the loop and random call; ask for accumulator and final output. In an outage, physically roll dice for three rounds and trace the printed starter's variables.
-
-**Exit evidence:** Predict the total after five fixed rolls of 2. Save `I_W05_DiceArena_ID.py`. Optional mission: design a different dice scoring rule using known conditions.
-
-**Resources:** [Python for and range reference](https://docs.python.org/3/tutorial/controlflow.html) and [random module](https://docs.python.org/3/library/random.html). These are teacher references for the original dice task.
-
-**Teaching record:** Date ___ · Mission completed ___/12 · Loop-count predictions ___ · Accumulator problems ___ · Next adjustment ___
-
-## Week 6 Guess the number
-
-**Learning objective:** Use a `while` loop when the number of repetitions depends on a condition. Update the values that control the loop and explain its stopping rule. Prerequisite: integer input, comparisons, random numbers and fixed-count loops.
-
-**Hook:** Guess a secret number until it is found. Ask whether the program knows how many guesses a player will need.
-
-**Prepare:** Start with fixed secret 7 for testing, then switch to `random.randint(1, 10)`. Explain the starter's 0 as an initial value outside the valid guess range. Demonstrate Stop before showing an intentionally non-terminating loop.
+**Objective:** Combine fixed-count repetition, a question, a condition and changing score. Use one repeated question first to isolate repetition; different question data and lists are deferred.
 
 ```python
-secret = 7
-guess = 0
-while guess != secret:
-    guess = int(input("Guess 1 to 10: "))
-    if guess < secret:
-        print("Too low")
-    elif guess > secret:
-        print("Too high")
-    else:
+score = 0
+for round_number in range(3):
+    answer = input("What is 3 + 4? ")
+    if answer == "7":
+        score = score + 1
         print("Correct")
+    else:
+        print("Try again next round")
+print("Final score:", score)
 ```
 
-### The 60 minute plan
+**60 minutes:** 0–10 count/indentation recap; 10–22 trace one round and model nesting; 22–37 Mission; 37–48 ladder and partner tests; 48–57 explain score placement and repair; 57–60 save/reopen.
 
-- **0–5:** Demo wrong guesses followed by the correct one. Compare fixed rounds with “until correct”.
-- **5–12:** Run the starter and trace `guess` before each loop check. First win: a wrong guess receives a hint and another prompt. Show how Stop handles a loop whose controlling value never changes.
-- **12–30:** Mission wins: repeat input, correct hint, stop after success. Add randomness only after fixed-secret tests pass.
-- **30–50:** Ladder. Before attempt limits, show the combined condition `guess != secret and attempts < 5` and increment attempts once per submitted guess.
-- **50–57:** Bug hunt: input accidentally moved outside the loop. Ask what changes, and whether the stopping condition can become false.
-- **57–60:** Save the game and note the tested sequence.
+**Ladder:** Mission — three questions asked, final score correct. Upgrade — show round numbers and feedback. Challenge — move familiar feedback into `show_feedback(answer)`; keep score update in the caller, without requiring return. Boss — after modelling `elif`, use the round number to choose three different questions and expected answers; this is optional, not a class prerequisite.
 
-### Student challenge ladder
+**Tests:** Answers 7/7/7 → 3, 0/0/0 → 0, 7/0/7 → 2. **Hints:** Initialise score before loop; input inside loop; final score after loop. Function that prints feedback does not automatically update the caller's score. **Recovery:** Continue Week 6 count practice or Week 5 two-question quiz; do not require nesting before readiness. Paper backup: trace round, answer and score.
 
-- **Mission:** Keep asking until the number is correct and print low/high/correct feedback. Success with secret 7: guesses 3, 9, 7 print low, high, correct, then stop.
-- **Upgrade:** Count guesses and report how many were needed after success. Verify the sequence above counts 3.
-- **Challenge:** Limit the game to five guesses. After the loop, print a win message if correct, otherwise reveal the secret. Success on guess five must still count as a win.
-- **Boss:** Add numeric range validation: values outside 1–10 produce a warning and do not use an attempt. Valid wrong guesses still count. Use `if/else` inside the loop; exceptions for nonnumeric input are not required. Test both an out-of-range entry and success on the final allowed attempt.
+**Exit:** Explain why score starts outside the loop. Save `I_W07_RoundQuiz_ID.py`. **Record:** Mission ___/12 · State trace ___ · Nesting support ___ · Showcase starter ___
 
-**Likely mistakes and hints:** The input is outside the loop, so `guess` never changes. Attempts is never incremented. Using `or` instead of `and` may allow the loop to continue after success or exhaustion. Losing is announced even after a correct fifth guess; check success first after the loop. Validation still assumes integer input, as stated in the prompt.
+## Week 8 Small interactive showcase
 
-**Support and backup:** Keep secret fixed and omit attempt limits. Trace a three-guess run using a table of guess and condition result. For an outage, play the game with one student as the computer and track its loop state.
+**Objective:** Finish a familiar program, test two cases and explain one change. No new syntax. Choose greeting/briefing, shop, password checker or quiz according to demonstrated readiness; loops are required only for the round-based option.
 
-**Exit evidence:** Explain which change makes the loop stop. Save `I_W06_GuessingGame_ID.py`. Optional mission: write a test sequence for success on the last allowed guess.
+**Prepare:** Students' saved projects plus working recovery starters from Weeks 2–7. A plan names the user, input, output and one small change. Keep project scope to one existing program.
 
-**Resources:** [Python control flow tutorial](https://docs.python.org/3/tutorial/controlflow.html) for conditions and general loop context; [Dodona sandbox guide](https://docs.dodona.be/en/guides/students/scratchpad/) for Stop and stepping through code. Use the guide as environment support, not a project-save guarantee.
+**60 minutes:** 0–10 retrieve starter and choose change; 10–20 plan and run first change; 20–38 build; 38–48 paired tests/repair; 48–55 short demonstrations and individual explanations; 55–57 reflection; 57–60 save/reopen.
 
-**Teaching record:** Date ___ · Mission completed ___/12 · Can explain termination ___ · Off-by-one problems ___ · Week 7 adjustment ___
+**Ladder:** Mission — working interactive project, one independently explained modification and two tests with expected/actual results. Upgrade — reuse a printing function with a parameter. Challenge — add a third boundary test and fix/retest an issue if found. Boss — combine two already secure ideas, such as numeric shop total and affordability decision, after teacher checks scope. Do not add `while` or `return` as showcase requirements.
 
-## Week 7 Reusable game tools
+**Tests:** Greeting: two names including one with a space. Shop: zero items and quantity 4. Password: accepted and rejected. Quiz: all correct and all wrong; third test mixed answers. **Recovery:** A small working greeting with a clear explanation is valid evidence; separately record concepts still needing practice. Paper backup: trace planned inputs and outputs.
 
-**Learning objective:** Define and call a function, pass values through parameters, and use a returned value. Distinguish printing a result from returning it for further calculation. Prerequisite: expressions, conditions and loops.
-
-**Hook:** Show three copied damage calculations. Change the shield rule and ask how many places would need editing. Then show one function used three times.
-
-**Prepare:** Starter below and a copied-code version for comparison. Keep `max()` out of the initial example; the condition uses familiar syntax. Explain definition, call, argument, parameter and return through the actual values.
-
-```python
-def damage_after_shield(damage, shield):
-    remaining = damage - shield
-    if remaining < 0:
-        remaining = 0
-    return remaining
-
-hit = damage_after_shield(8, 3)
-print("Damage:", hit)
-```
-
-### The 60 minute plan
-
-- **0–5:** Compare copied calculations with one reusable rule.
-- **5–12:** Run the starter and change the call to `(2, 5)`. First win: two different calls produce correct results. Explain that defining a function alone does not call it.
-- **12–30:** Mission wins: define function, call with two inputs, store and print its returned result. Demonstrate replacing `return` with `print` to reveal why the caller no longer receives the numeric value it needs.
-- **30–50:** Ladder. Before the Challenge, model a short `show_status(health)` function that prints a label, and call it inside a two-round loop.
-- **50–57:** Trace one call, identifying the argument values, local variables and returned number. Avoid introducing global variables as a shortcut.
-- **57–60:** Save both the functions and their calls.
-
-### Student challenge ladder
-
-- **Mission:** Write `damage_after_shield(damage, shield)` and use it for at least two calls. Success: `(8, 3)` returns 5; `(2, 5)` returns 0; `(4, 4)` returns 0.
-- **Upgrade:** Ask the user for damage and shield values, call the function and print the returned result. Assume nonnegative integer input.
-- **Challenge:** Create a three-round battle using random damage, the damage function and a `show_status(health)` function. Start health at 20 and show the health after each hit. Use a condition to keep displayed health at least 0.
-- **Boss:** Put a known game rule from Week 5 or 6 into a function with parameters and a returned value. Explain the caller's job and the function's job. Test the function separately with three inputs before running the whole game.
-
-**Likely mistakes and hints:** The definition is never called. A function prints but does not return a usable number, so the caller receives `None`; compare the two versions. Code tries to use `remaining` outside the function; use the returned value instead. Incorrect argument order changes the result; label the two values before calling.
-
-**Support and backup:** Supply the function header and arithmetic line; the student adds the condition, return and two calls. During an outage, treat a function as a station: input cards go in and one result card returns to the caller.
-
-**Exit evidence:** Explain why `return` is useful when health must be updated. Save `I_W07_GameTools_ID.py`. Optional mission: describe another rule that could become a function.
-
-**Resource:** [Python defining functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions), using selected examples for teacher preparation. Our game-tool brief is an original task.
-
-**Teaching record:** Date ___ · Mission completed ___/12 · Parameter/return explanations ___ · Scope confusion ___ · Week 8 changes ___
-
-## Week 8 Python game showcase
-
-**Learning objective:** Plan a small text game, combine taught constructs, test meaningful cases and explain one improvement. No new language construct is required.
-
-**Hook:** Choose “Guessing game with limited attempts” or “Dice arena with a reusable scoring rule”. A student can propose a similarly sized text adventure if it uses only taught ideas and fits the minimum brief.
-
-**Prepare:** Minimal working starters from Weeks 5 and 6 and a blank planning outline. Students can extend their own work; rebuilding from a blank file is optional. Provide test headings: input, expected result, actual result, change needed.
-
-### The 60 minute plan
-
-- **0–5:** Show project choices and the minimum playable brief.
-- **5–12:** Students write three rules, choose a starter and plan one small feature. Model how to choose a boundary test. First win: starter runs with one student-made change.
-- **12–30:** Build the Mission. Circulate to verify every student can trace a state update, even if working in pairs.
-- **30–45:** Ladder and paired tests. Each student owns a test record; reserve five minutes for repairing one issue.
-- **45–54:** Three short demos, while other students playtest in pairs. Present a feature and evidence of a repair, not a long code reading.
-- **54–57:** Individual reflection and next-module interest survey.
-- **57–60:** Save code and test notes, then reopen the remote copy.
-
-### Student challenge ladder
-
-- **Mission:** Finish a game with input, a changing score or attempt value, at least one condition, a loop and a clear ending. Success: a partner can play without coaching and the final result matches the stated rules.
-- **Upgrade:** Extract one repeated or clearly separate rule into a named function. Call it from the game and explain its parameter or returned value. Students who still need function support may do this with a provided header.
-- **Challenge:** Create three meaningful tests, including a success, a failure or draw, and a boundary case. Repair one issue and rerun the affected test.
-- **Boss:** Add a user-chosen difficulty setting that changes a taught parameter such as allowed attempts, number range or round count. Compare both settings using test evidence and avoid new packages or data structures.
-
-**Suggested acceptance tests:** For guessing: correct first guess, all allowed guesses wrong, correct final allowed guess. For dice: player win, computer win, draw using temporary fixed rolls. Restore random rolls afterwards and check their permitted ranges. For an alternative adventure, test every offered choice and at least one invalid text choice with a known `else` response.
-
-**Checkpoint questions:** What enters the program? Which value changes each round? Why does the loop stop? What job does the function do, if included? What did you test, and what changed? If a student omits a function, assess their Week 7 function example separately rather than assuming mastery.
-
-**Likely mistakes and hints:** A large new story consumes the build time; finish three rules before adding content. Moving code into a function can lose access to a value; pass it as a parameter or return it. Test data can remain hard-coded accidentally; check the delivered version after restoring randomness.
-
-**Support and backup:** Use a tested starter and require one independently explained rule change plus three tests. If most students need loop reinforcement, use the whole session as a guessing-game repair workshop and postpone optional features. In an outage, write pseudocode and trace the three tests on paper.
-
-**Exit evidence:** Save `I_W08_Showcase_ID.py` and its test record. Optional mission: write a proposal for one next-module feature.
-
-**Resources:** [Python control flow tutorial](https://docs.python.org/3/tutorial/controlflow.html), [random module reference](https://docs.python.org/3/library/random.html) and [Raspberry Pi Rock Paper Scissors](https://projects.raspberrypi.org/en/projects/rock-paper-scissors) as a related later project. The Raspberry Pi page requires JavaScript; its project can inspire future games, but it is not a required new build in this showcase.
-
-**Teaching record:** Date ___ · Playable projects ___/12 · Independent explanations ___ · Concepts to reinforce ___ · Student interests ___ · Week 9 priority ___
+**Exit:** Demonstrate, trace one value and name the tested change. Save `I_W08_Showcase_ID.py` and test notes. **Record:** Working projects ___/12 · Independent explanations ___ · Concepts secure ___ · Week 9 priorities ___
 
 ## Progress tracking and future decisions
 
@@ -429,11 +247,11 @@ Use **S** for seen, **H** for can use with help, **I** for independent, and a da
 | ___ | ___ | ___ | ___ | ___ | ___ | ___ | ___ | ___ | ___ |
 | ___ | ___ | ___ | ___ | ___ | ___ | ___ | ___ | ___ | ___ |
 
-At Week 4, decide whether students need more type/condition work before loops. At Week 8:
+At Week 4, check input, function calls, arithmetic and two-way conditions; use Week 5 for the observed gaps. After Week 8:
 
-- If loops remain uncertain, use another short guessing or round-based game and trace its state before adding lists.
-- If parameters and return remain uncertain, begin with tiny reusable scoring functions and separate tests.
-- If the core constructs are secure, Weeks 9–16 can introduce lists, string methods, dictionaries and decomposition through quizzes, simulations and text adventures.
+- If fixed-count loops remain uncertain, repeat a short round-based activity and trace its state before introducing another loop type or lists.
+- Check parameters separately from return: parameters were introduced in Lesson 1, while return is deferred. Consolidate calls, then introduce returned values with tiny calculation functions and separate tests.
+- Start Weeks 9–16 with deferred while loops and return when ready, using a fixed-secret guessing game and small calculation functions. Randomness and compound conditions can follow. Introduce lists, string methods and dictionaries only after these foundations are secure; the original dates are flexible.
 - Later modules can develop modules, file/data concepts in the tested environment, larger teamwork projects and an independent showcase. Basic object-oriented ideas remain optional and depend on readiness.
 - A saving failure is a workflow issue to repair before multiweek projects, not a reason to blame the student.
 
@@ -445,11 +263,11 @@ When adding a Dodona exercise, record the exact URL here only after reviewing it
 
 | Week | Desired supplement | Selected exercise URL | Access and test checked |
 |---|---|---|---|
-| 1–2 | Input, output, integer calculation | ___ | ___ |
-| 3–4 | Two or three decision outcomes | ___ | ___ |
-| 5 | Fixed-count total | ___ | ___ |
-| 6 | Condition-controlled repetition | ___ | ___ |
-| 7 | Function with parameters and return | ___ | ___ |
+| 2 | Keyboard input, output and greeting calls | ___ | ___ |
+| 3 | Integer calculation | ___ | ___ |
+| 4–5 | Two-way decisions and score updates | ___ | ___ |
+| 6–7 | Fixed-count repetition | ___ | ___ |
+| 8 or later | Consolidation; return only once taught | ___ | ___ |
 
 This selection is optional preparation, not a dependency for teaching the supplied lessons. The document does not claim that particular custom exercises or a Dodona teacher course have already been created.
 
@@ -475,9 +293,8 @@ Keep Python keywords in English. Translate task prose as needed, but do not tran
 | Version and date | Lesson or decision | What changed | Evidence or reason |
 |---|---|---|---|
 | 1.0 · 4 October 2026 | First eight lessons | Initial plan with Dodona trial and explicit cloud backups | Agreed constraints and verified sandbox saving limitation |
-| ___ | ___ | ___ | ___ |
-| ___ | ___ | ___ | ___ |
+| 1.1 · 13 October 2026 | Feedback after Lesson 1 | Lesson 2 greeting consolidation and input; re-paced weeks 3–8; deferred while/return | Class reached opening and personalising first function-based script |
 
 ## Resource notes
 
-Official Python, Dodona and Raspberry Pi links were checked during preparation on 4 October 2026 in the teacher's timezone. Raspberry Pi project pages require JavaScript and should be rehearsed before assigning them; their full step-by-step contents were not inspected in this preparation. Core tasks here are self-contained original lesson plans. Timings, challenge levels and adjustment thresholds are teaching recommendations. Platform login and saving must still be tested in the school environment before the course begins.
+Official Python, Dodona and Raspberry Pi links were checked during preparation on 4 October 2026 in the teacher's timezone. Raspberry Pi project pages require JavaScript and should be rehearsed before assigning them; their full step-by-step contents were not inspected in this preparation. Core tasks here are self-contained original lesson plans. Timings, challenge levels and adjustment thresholds are teaching recommendations. Lesson 1 has taken place; confirm the actual platform and file recovery route before Lesson 2. Existing reference links are retained from the original preparation and were not rechecked for this pacing revision.

@@ -1,5 +1,5 @@
-title: My Docs
-description: Notes, guides, and documentation
+title: Introduction to Programming
+description: MakeCode Arcade and Python course lessons
 markdown: kramdown
 defaults:
   - scope:

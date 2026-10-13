@@ -1,6 +1,6 @@
 # Beginner MakeCode Arcade Curriculum Weeks 1 to 8
 
-Editable teacher planning document · Version 1.0 · 4 October 2026
+Editable teacher planning document · Version 1.1 · 13 October 2026
 
 This document plans the first eight lessons of a 32-lesson after-school programming course for 27 beginners aged 10–13. Each lesson lasts 60 minutes. We teach in Estonian, use English coding terms and resources, and build small games in Microsoft MakeCode Arcade. The main aim is to help students break problems into steps, predict behaviour, experiment, and debug. Lessons 4 and 8 give us evidence for adjusting the next module.
 
@@ -61,20 +61,30 @@ Keep drawing time to about two minutes during guided builds. Students can choose
 
 ## The eight lesson sequence
 
+### Adjustment after Lesson 1
+
+Teacher feedback: the lesson went well, but covered only a small part of the planned material. Most students created a character, made it move and say their chosen messages, and used A for speech with a pause between messages. This is the starting baseline for Lesson 2, not evidence that everyone completed every original Week 1 task or can explain it independently. Attendance, completion counts and saving results were not supplied and remain to be recorded.
+
+Continue the same character project in Week 2; copy it where practical to preserve the first lesson. Spend time on reliable controls, readable sequences, testing and saving before coordinates in Week 3. The character becomes a treasure adventure across Weeks 3–5 and 7–8; Week 6 is a small separate loop experiment. These smaller steps retain the course's problem-solving goals while reducing setup and new concepts per meeting.
+
+Week 4 remains a checkpoint, now covering events, movement, coordinates and the first overlap rule. Week 8 remains a showcase and checkpoint. Custom shield state, life, projectiles and interval spawning move to the next module or later, after checking readiness; they are not compulsory catch-up work. Conditions use familiar score in Week 7. Fixed-count loops remain a small Week 6 experiment and can be revisited later if needed.
+
 | Week | Project | Main idea | Evidence of progress |
 |---|---|---|---|
-| 1 | Talking character | Sequence, sprites, button events | Predicts startup and button behaviour |
-| 2 | Treasure explorer | Movement, coordinates, events | Explains a position change |
-| 3 | Cherry collector | Overlap, score, randomness | Collection changes state once |
-| 4 | Collection game remix | Combine and debug Weeks 1–3 | Repairs one bug and explains a rule |
-| 5 | Shield station | Variables, conditions, if and else | Predicts shield-on and shield-off results |
+| 1 | Talking character — completed | Actual baseline: sprite, movement, chosen speech, A sequence with pause | Verify each student's events and timing in Week 2 |
+| 2 | Character controls and testing | Consolidate events, movement and sequence; B help | Tests controls separately and explains one event |
+| 3 | Treasure locations | Coordinates and two sprite references | Predicts a position change |
+| 4 | Find the treasure | First overlap rule; debug/checkpoint | Collection removes Food; repairs and explains a bug |
+| 5 | Cherry collector | Score, then bounded randomness | One collection changes score once; explains limits |
 | 6 | Robot patrol | Repeat loops and pauses | Predicts the number and direction of steps |
-| 7 | Meteor dodge | Repeated interval events | Explains how the interval affects difficulty |
-| 8 | Arcade showcase | Plan, build, test and revise | Demonstrates a working game and one tested change |
+| 7 | Treasure goal | Conditions using familiar score | Predicts both outcomes of a B status check |
+| 8 | Character adventure showcase | Plan, remix, test and revise | Demonstrates a playable project and one tested change |
 
 Weeks 1–8 form the first module. Later modules can develop functions, game state, lists, larger projects and teamwork, then independent projects and a final showcase. Do not accelerate into these just because students finish a tutorial quickly.
 
 ## Week 1 Talking character
+
+**Historical plan:** The original Week 1 plan below is retained as the teaching record. It describes intended activities, not completed coverage. Use the feedback above and revised Week 2 plan for the next meeting. The [Week 1 teacher reference](Beginner_Week_1_Teacher_Reference.md) also remains the original preparation document.
 
 **Learning objective:** Create a sprite, run a short sequence at startup, and make a button trigger a different action. Explain the difference between startup code and an event. No prior coding knowledge is assumed.
 
@@ -108,248 +118,250 @@ Weeks 1–8 form the first module. Later modules can develop functions, game sta
 
 **Teaching record:** Date ___ · Mission completed ___/27 · Students needing event review ___ · Login/save issues ___ · Change for next week ___
 
-## Week 2 Treasure explorer
+## Week 2 Character controls and testing
 
-**Learning objective:** Move a character with the controller and describe its position using x and y coordinates. Use an event to change its position. Prerequisite: creating a sprite and attaching code to events.
+**Learning objective:** Consolidate movement, startup and button events; build a readable sequence and test separate controls. Prerequisite: the actual Week 1 baseline, with recovery support for students who need it.
 
-**Hook:** Show a character that walks around and teleports to a treasure when A is pressed. Ask, “What two numbers tell the game where the treasure is?”
+**Project decision:** Continue the existing character, preferably in a copied Week 2 project. A fresh project is a recovery option, not a second task. See [Week 2 teacher reference](Beginner_Week_2_Teacher_Reference.md) for block recipes, pacing, extra tasks and bug answers.
 
-**Prepare:** A plain background with one Player and one stationary Food sprite as treasure. No tilemap is needed. Have a recovery starter with the Player already created. Show a screen coordinate sketch: Arcade's screen is 160 by 120 pixels; x grows rightward and y downward.
+**Hook:** The character can already move and talk. Can a new player discover its controls without the creator explaining them?
 
-### The 60 minute plan
-
-- **0–5:** Reopen Week 1 as a save check, then show today's demo. Students point to the top-left and centre.
-- **5–12:** Create Player, use `move mySprite with buttons`, and turn on `stay in screen`. Run immediately. Set a Food sprite's position to x 120, y 30. Demonstrate A setting the Player position to the same coordinates.
-- **12–30:** Mission wins: movement works, treasure is visible, teleport reaches it. Students test two other coordinates before choosing their final location.
-- **30–50:** Ladder work. Use pairs for five minutes: navigator names a target coordinate, driver predicts and tests it; switch roles.
-- **50–57:** Compare walking and teleporting. Ask what changes when y increases. Explain that touching treasure does nothing until we add a rule next week.
-- **57–60:** Name and save the new project.
-
-### Student challenge ladder
-
-- **Mission:** Make a Player move with arrow buttons, remain on screen, and teleport to the treasure when A is pressed. Success: movement works in all directions and A reaches the treasure.
-- **Upgrade:** Make B return the Player to a starting position. Test A then B three times.
-- **Challenge:** Choose two clearly different locations. Make A and B move the Player to them. Write down both coordinate pairs and predict which is higher on screen.
-- **Boss:** Design a two-location treasure trail using the known position and speech blocks. A sends the Player to the first clue; B sends it to the second. A partner must find both clues and explain your coordinates.
-
-**Likely mistakes and hints:** x and y may be swapped; change one number at a time. Moving the Food instead of Player is a variable-selection error. A sprite can sit partly off screen even when its centre is in range; use comfortable positions such as x 20–140 and y 20–100. `stay in screen` applies to the selected sprite.
-
-**Support and backup:** Keep the supplied art and one target location. During an outage, use a paper grid and coordinate cards; students instruct a token to move, then debug swapped coordinates.
-
-**Exit evidence:** Student explains which direction changes when y increases. Save `B_W02_TreasureExplorer_ID`. Optional mission: sketch a three-location map without adding new code concepts.
-
-**Resources:** [Coordinate Walker](https://arcade.makecode.com/courses/csintro1/sprites/coordinate-walker) for the coordinate idea; [Sprite Motion and Events](https://arcade.makecode.com/courses/csintro1/motion/sprite-motion-event) for movement. Select relevant sections rather than requiring both complete activities.
-
-**Teaching record:** Date ___ · Mission completed ___/27 · Coordinate confusion ___ · Save issues ___ · Next adjustment ___
-
-## Week 3 Cherry collector
-
-**Learning objective:** Use an overlap event to change score and move a collectible. Explain a variable as a value that can change and randomness as choosing a value within limits. Prerequisite: movement and position blocks.
-
-**Hook:** Collect one cherry and watch another appear elsewhere. Ask, “Which rule should run when the two sprites touch?”
-
-**Prepare:** Duplicate the Week 2 style of project with Player and Food sprites. Use one collectible only. Keep the Cherry Pickr resource open, but omit its tilemap for this first version.
+**Prepare:** A demo with movement, stay-in-screen, A speech → pause → speech and B help. Prepare both a working recovery copy and a minimal one-sprite starter. Check the school's copy/export/import workflow before class.
 
 ### The 60 minute plan
 
-- **0–5:** Demo three collections and ask students to predict the next cherry's position.
-- **5–12:** Set score to 0 on startup. Add `on Player overlaps Food`; inside, change score by 1 and reposition the event's `otherSprite` with random x 10–150 and y 10–110. Pause 200 ms after moving it. Explain that overlapping for several frames can trigger a rule repeatedly, so moving the item and a short pause help.
-- **12–30:** Build movement, then collection, then random relocation. Run after each win. Explain score as a built-in changing value; avoid adding a second custom variable today.
-- **30–50:** Ladder and testing. Partners collect ten cherries and watch for unexpected score jumps.
-- **50–57:** Compare two random ranges. Use a test run to discuss why unpredictable does not mean unrestricted.
-- **57–60:** Save and check the latest version.
+- **0–10:** Reopen and test each student's existing project. Check movement and A separately; repair access or missing essentials. Preserve the Week 1 copy where practical.
+- **10–17:** Demonstrate one improvement at a time: stay-in-screen if missing, then B help. Reuse an existing B handler if present. Predict before running.
+- **17–35:** Complete the Mission. Give individual help first to students without movement or a working A event. Students already at the baseline add B and test rather than rebuild.
+- **35–47:** Optional ladder work. A partner tries the controls without coaching and gives one specific observation.
+- **47–54:** Repair one issue and retest. Ask individual students which event contains their change and why a pause is needed.
+- **54–60:** Name, save and verify the latest change. Keep this longer saving window while the routine is still becoming familiar.
 
 ### Student challenge ladder
 
-- **Mission:** A movable Player collects one Food sprite, adds 1 to score, and sends it to a random position. Success: three separate collections give score 3.
-- **Upgrade:** Start a 30-second countdown on startup. Show the player how many points they can collect before time runs out.
-- **Challenge:** Make a small-target version and a large-target version by changing the Food image. Ask a partner to play both and identify which is harder.
-- **Boss:** Balance a collector game so your partner can usually collect 5–10 items in 30 seconds. Change movement speed, collectible size or placement range, and explain the effect of two changes. No new blocks are required.
+- **Mission:** Keep one movable character visible on screen; A shows two readable messages with a pause between; B gives a short controls/help message. Success: restart, movement, A once and B once all pass separate tests. Startup greeting is welcome if already present, but does not block this Mission.
+- **Upgrade:** Add or improve startup instructions so a partner can discover movement, A and B. Pause between consecutive startup messages if needed.
+- **Challenge:** Make B change the background and give a matching message; A's sequence must still work. Explain why both B actions belong in that event.
+- **Boss:** Make a tiny character experience another student can use independently. Record three expected/actual tests and improve one confusing behaviour using taught blocks.
 
-**Likely mistakes and hints:** Score resets inside the overlap event; move its initialisation to startup. Both sprites have the same kind; select Player and Food correctly. Updating the global Food variable becomes confusing with many collectibles; today keep one, and demonstrate the overlap event's `otherSprite`. If score jumps, check relocation and the short pause; the new random position can occasionally overlap the Player again.
+**Likely mistakes and hints:** Wrong sprite selected; compare variable dropdowns. Two A handlers after duplication; change the intended help event to B. Speech duration does not delay the next instruction; retain the explicit pause. Test one event at a time before investigating rapid input.
 
-**Support and backup:** Supply movement and Food creation, leaving the overlap rule for the student. In an outage, throw two paper dice to choose a grid location and update a score counter by hand after each collection.
+**Support and backup:** Give the working recovery project and require one student-made change and explanation. With no computers, act out startup, A and B instruction cards with a wait card between messages.
 
-**Exit evidence:** Ask what changes and what stays the same after collection. Save `B_W03_CherryCollector_ID`. Optional mission: invent a theme with the same mechanics.
+**Exit evidence:** Explain startup versus a button event and one test. Save `B_W02_CharacterControls_ID`. No required homework.
 
-**Resources:** [Cherry Pickr](https://arcade.makecode.com/lessons/cherry-pickr), adapted to a plain background; [Overlap and Events Part 1](https://arcade.makecode.com/courses/csintro1/motion/overlap1); [Random Sprite Location](https://arcade.makecode.com/courses/csintro1/motion/random).
+**Resources:** [Controller movement](https://arcade.makecode.com/reference/controller/move-sprite), [Stay in screen](https://arcade.makecode.com/reference/sprites/sprite/set-stay-in-screen), [Pause](https://arcade.makecode.com/reference/loops/pause).
 
-**Teaching record:** Date ___ · Mission completed ___/27 · Can explain score ___ · Repeated-overlap problems ___ · Next adjustment ___
+**Teaching record:** Date ___ · Present ___ · Baseline independently verified ___ · Mission completed ___ · Event/timing support ___ · Save issues ___ · Week 3 changes ___
 
-## Week 4 Collection game remix
+## Week 3 Treasure locations
 
-**Learning objective:** Combine sprites, events, movement, position and score; find a bug using a prediction and a small test. This is a checkpoint with no required new programming concept.
+**Learning objective:** Use x and y to place sprites and predict a position change. This week's new idea is coordinates; movement and button events are review.
 
-**Hook:** Demonstrate a collector that stubbornly stays at score 1. Ask whether it is broken even though it runs without an error.
+**Hook:** Show the familiar character walking to a treasure. Ask which two numbers tell the game where the treasure sits.
 
-**Prepare:** Three separate bug examples: score set to 1 rather than increased; an overlap event using the wrong sprite kind; a random position range that puts Food off screen. Give each pair one bug first. Keep a working Week 3 recovery starter.
+**Prepare:** A copy of the character project with one Player; a recovery copy with movement already working. Use small gallery images, a plain background and no tilemap. Draw a 160 × 120 screen: x grows rightward, y downward; coordinates locate a sprite's centre.
 
 ### The 60 minute plan
 
-- **0–5:** Predict and run the score bug. Explain that incorrect behaviour is also a bug.
-- **5–12:** Model “expected → actual → suspect one block → change → retest.” Fix the score bug together. Review an event and a variable using students' explanations.
-- **12–30:** Pairs complete a bug hunt, switching roles after seven minutes, then each student begins their own remix from Week 3.
-- **30–50:** Work through the ladder. Circulate with the four checkpoint questions below; ask quieter students individually.
-- **50–57:** Partners play and report one useful change. Share one repair, including the evidence that it worked.
-- **57–60:** Cloud save and export backup. Have students reopen the uploaded copy at the start of Week 5 if time is tight today.
+- **0–10:** Reopen and check movement. Keep A's existing speech; explain that today's B will replace the help action in this copied project.
+- **10–18:** Set Player to x 30, y 60. Create one separate variable `treasure` of kind Food and set it to x 120, y 30. Predict and test one coordinate change.
+- **18–35:** Complete the Mission, running after each position change. Check variable selection before adding more blocks.
+- **35–47:** Demonstrate B setting Player to x 30, y 60; students add the return action, then choose optional ladder tasks.
+- **47–54:** Partner predicts which of two locations is higher. Compare walking with setting a position directly.
+- **54–60:** Save and verify.
 
 ### Student challenge ladder
 
-- **Mission:** Fix one supplied bug, then make a playable themed collector with movement, one collectible and increasing score. Success: three collections add exactly three points in the test run.
-- **Upgrade:** Add button instructions and a countdown, using known speech and countdown blocks.
-- **Challenge:** Give a partner a deliberately broken copy with one changed block. They must explain and repair the rule. Keep the working original.
-- **Boss:** Create two difficulty versions using only known blocks. Run the same 30-second test with a partner and explain which parameter caused the biggest difference.
+- **Mission:** Place a movable Player and stationary treasure at two chosen visible positions. Record both coordinate pairs and explain what increasing y does. Touching treasure has no rule yet.
+- **Upgrade:** B returns Player to its starting coordinates. Walk away and test B three times.
+- **Challenge:** Keep A's speech and append a position action after its final message to send Player to treasure. Predict the speech/wait/move order before testing; pause after the final message too if it should finish before the move.
+- **Boss:** Design a two-location clue trail using existing speech, button and position blocks. A partner explains the two locations after testing.
 
-**Checkpoint questions:** What triggers collection? Where does the starting score belong? Why do we move the Food afterwards? How did you prove your repair worked? Mark each student's understanding as seen, with help, or independent. Working art or a high score is not evidence of conceptual understanding by itself.
+**Likely mistakes and hints:** Setting `treasure` overwrites Player's variable; keep separate references. Swapped x/y; change one value. Use comfortable positions such as x 20–140 and y 20–100 for small sprites, rather than screen edges.
 
-**Likely mistakes and hints:** Students may change several blocks at once; restore the last working state and isolate one change. They may delete the original while remixing; duplicate first. In pair work, ask the navigator to explain the repaired block before switching.
+**Support and backup:** Supply the two sprites; ask the student to change and explain one coordinate. Unplugged: move a token on a paper screen using coordinate cards.
 
-**Support and backup:** Supply a working starter and ask for one deliberate behaviour change before personalisation. For an outage, give block printouts with one misplaced rule and ask students to trace three collections.
+**Exit evidence:** Predict the direction of a y change. Save `B_W03_TreasureLocations_ID`.
 
-**Exit evidence:** Save `B_W04_CollectionRemix_ID`, export a backup, and record one bug and its fix. Optional mission: design new art for the existing game.
+**Resources:** [Set position](https://arcade.makecode.com/reference/sprites/sprite/set-position), [Coordinate Walker](https://arcade.makecode.com/courses/csintro1/sprites/coordinate-walker).
 
-**Resources:** [Touch the Button review](https://arcade.makecode.com/courses/csintro1/review/touch-the-button) as a related remix activity; [Cherry Pickr](https://arcade.makecode.com/lessons/cherry-pickr) for the familiar game rules.
+**Teaching record:** Date ___ · Mission completed ___ · Can explain x/y ___ · Sprite-reference confusion ___ · Week 4 changes ___
 
-**Teaching record:** Date ___ · Mission completed ___/27 · Students needing events/score review ___ · Best evidence ___ · Week 5 changes ___
+## Week 4 Find the treasure — first checkpoint
 
-## Week 5 Shield station
+**Learning objective:** Add one overlap rule to a familiar project, then test and repair it. New idea: an event can be triggered by two sprite kinds touching. This checkpoint measures events, movement, coordinates and debugging; score is not yet expected.
 
-**Learning objective:** Store a shield state in a custom variable and use an `if/else` rule to choose an outcome. Prerequisite: events, score and simple state changes.
+**Hook:** Last week touching treasure did nothing. Today reaching it makes it disappear and the character says “Found it!”.
 
-**Hook:** A shield protects a spaceship from a meteor. Press A to turn it on, B to turn it off, and touch the meteor. Ask, “The same collision happens, so why are there two outcomes?”
-
-**Prepare:** A movable Player and one stationary Enemy meteor. Use a numeric variable `shield` with values 0 and 1 for this first lesson. Display the state through speech. A recovery starter contains sprites and movement only.
+**Prepare:** Week 3 copy and working recovery starter. Remove optional A teleportation so collection requires walking. Keep B return if useful. Prepare a wrong-kind overlap bug and a wrong-sprite destroy bug.
 
 ### The 60 minute plan
 
-- **0–5:** Demo shield-on and shield-off collisions. Students predict both outcomes.
-- **5–12:** Create `shield = 0` on startup and set life to 3. A sets shield to 1 and says “Shield on”; B sets it to 0 and says “Shield off”. In Player–Enemy overlap, add `if shield = 1`: add 1 to score; `else`: change life by -1. Move `otherSprite` to a random safe-screen position and pause 200 ms after either outcome.
-- **12–30:** Mission wins: buttons change state, each branch works, collision finishes by relocating the meteor. Trace the variable aloud before running.
-- **30–50:** Ladder; partners run a two-row test table with shield 0 and shield 1. Before the recharge extension, show that `score ≥ 2` checks whether score is at least 2 and test scores 1, 2 and 3.
-- **50–57:** Show an `else` accidentally outside the intended logic and compare the results. Ask why a condition needs to be checked when the collision happens.
-- **57–60:** Save and note one successful test.
+- **0–10:** Reopen, check two different sprite kinds and predict the result of touching treasure.
+- **10–18:** Demonstrate `on Player overlaps Food`: destroy the event's `otherSprite`, then make Player say “Found it!” for 2000 ms. Restart to bring treasure back.
+- **18–35:** Build and test one collection. Then repair one supplied event/kind bug using expected → actual → one change → retest.
+- **35–47:** Optional ladder and individual checkpoint conversations.
+- **47–54:** Partner tests from restart, then creator fixes one issue.
+- **54–60:** Save and export/upload a backup; verify the latest copy.
 
 ### Student challenge ladder
 
-- **Mission:** Shield-off collision costs one life; shield-on collision gains one point. Success: both outcomes match the test table and the meteor relocates.
-- **Upgrade:** Make the shield single-use: after a protected collision, set shield to 0 and say “Shield used”. The next collision must cost a life until A is pressed again.
-- **Challenge:** Only allow A to activate the shield when score is at least 2. Activation spends 2 score; otherwise say “Collect 2 points first”. To earn starting points, add one Food collectible using Week 3's rule.
-- **Boss:** Balance the recharge system using known events, score and conditions. Explain the score cost and show a test where the player cannot recharge, then one where they can.
+- **Mission:** Walk to one treasure; it disappears and Player announces success. Restart restores it. Explain the overlap event and repair one supplied bug, with help if needed.
+- **Upgrade:** Add clear startup instructions using known speech/pause blocks.
+- **Challenge:** Choose new starting and treasure locations. Predict the walking route and ask a partner to test it.
+- **Boss:** Give a partner a copied project with one deliberate bug. They explain and repair it; preserve the working original.
 
-**Likely mistakes and hints:** The shield is checked only on startup; move the condition into the collision event. Life decreases after both branches; inspect the indentation of blocks visually. Startup never sets shield; initialise it. Repeated overlap can drain life rapidly; relocate the meteor after either branch and use the pause.
+**Checkpoint questions:** What triggers A compared with the overlap? Which sprite does `otherSprite` refer to here? What changes when y increases? What test proves the repair worked?
 
-**Support and backup:** Keep A and B as direct on/off controls and omit the score-recharge extension. For an outage, use a shield token and collision cards; students act out `if` and `else` and update life.
+**Likely mistakes and hints:** Both sprites are Player; check creation kinds. Destroying the event's `sprite` removes Player; use `otherSprite` for Food in this event. Creating Food inside the overlap continually adds objects; create once at startup.
 
-**Exit evidence:** Student predicts two collisions after a single-use shield is activated. Save `B_W05_ShieldStation_ID`. Optional mission: draw the two states of a shield.
+**Support and backup:** Supply the overlap container and ask for its actions. If coordinates/events remain unclear, use the next meeting for repair and cut Week 5 extensions. Unplugged: move paper sprites, trigger the matching kind rule and remove the Food card.
 
-**Resources:** [MakeCode if blocks](https://arcade.makecode.com/blocks/logic/if) for conditional logic; [Overlap reference](https://arcade.makecode.com/reference/sprites/on-overlap) for the collision event. These references support the original shield task.
+**Exit evidence:** Save `B_W04_FindTreasure_ID`, backup and one bug/fix note.
 
-**Teaching record:** Date ___ · Mission completed ___/27 · Independent branch predictions ___ · Extra support needed ___ · Next adjustment ___
+**Resource:** [Overlap reference](https://arcade.makecode.com/reference/sprites/on-overlap).
 
-## Week 6 Robot patrol
+**Teaching record:** Date ___ · Mission completed ___ · Events independent ___ · Coordinates independent ___ · Debugging evidence ___ · Week 5 decision ___
 
-**Learning objective:** Replace repeated movement instructions with a repeat loop and predict its total effect. Use a pause to make changes visible. Prerequisite: sprite positions, events and conditions.
+## Week 5 Cherry collector — score and randomness
 
-**Hook:** Show a robot taking ten steps out and ten back. Ask whether we should drag the same block ten times.
+**Learning objective:** Track collections using score and choose bounded random locations. Prerequisite: the Week 4 overlap rule. Introduce score first; random placement follows only after one collection works.
 
-**Prepare:** One Player robot at x 30, y 60. A teacher example has three repeated “change x by 5; pause 100 ms” sequences. Use no controller movement in the Mission so that manual input cannot obscure the patrol.
+**Hook:** Collect treasure, see the score rise, then restart to find it in a different place.
+
+**Prepare:** Copy Week 4; retain one Player and one Food. Use small sprites. The reliable minimum destroys the Food after one collection; repeated random relocation is an extension rather than a requirement.
 
 ### The 60 minute plan
 
-- **0–5:** Predict where three 5-pixel steps will end. Run the long version.
-- **5–12:** Replace it with `repeat 3 times`, containing change x by 5 and pause 100 ms. Show A pressed: set position to 30,60; repeat 10 rightward steps; repeat 10 steps of -5. First win is the visible outward patrol.
-- **12–30:** Complete the return trip. Students calculate the endpoint, run, and compare. Keep pauses inside each loop.
-- **30–50:** Ladder. Partners change one of step count, step size or pause and predict before testing.
-- **50–57:** Remove a pause in the demo and ask why movement now looks instant. Discuss “repeat a fixed number” versus “keep running”.
-- **57–60:** Save with the final count and step size in the reflection.
+- **0–10:** Reopen and test the Week 4 rule; repair if needed.
+- **10–18:** Set score to 0 in startup. In the overlap, destroy `otherSprite` first, then change score by 1. Predict restart versus collection.
+- **18–32:** Complete the scoring win. Students test that one collection gives exactly 1 and restart resets to 0.
+- **32–40:** Demonstrate random x 20–140 and y 20–100 for Food's startup position; restart several times to test the bounds.
+- **40–54:** Finish the Mission and optional ladder; compare expected and actual score.
+- **54–60:** Save and verify.
 
 ### Student challenge ladder
 
-- **Mission:** A makes the robot take ten 5-pixel steps right and ten 5-pixel steps left, returning to its starting point. Success: starts and ends at x 30 after one patrol.
-- **Upgrade:** Make a different out-and-back patrol with another step count or size. Predict its furthest x coordinate before running.
-- **Challenge:** Make B perform a square using four consecutive repeat loops: five steps of +5 x, five of +5 y, five of -5 x, five of -5 y. Start at a position that keeps it on screen.
-- **Boss:** Design a patrol that draws an imaginary rectangle and ends exactly where it started. Use different horizontal and vertical lengths, and explain why each direction cancels its opposite. Do not require nested loops.
+- **Mission:** Food starts at a bounded random location. One collection removes it and increases score from 0 to 1; restart resets score and places Food again.
+- **Upgrade:** Add a 30-second countdown in startup after a brief teacher demonstration. Try to find Food before time runs out.
+- **Challenge:** Replace destruction with moving `otherSprite` to a random location, then pause 200 ms. Test ten collections for score jumps; explain that a new location can overlap Player again and a pause does not guarantee separation. If unreliable, restore the one-collection version.
+- **Boss:** Compare two placement ranges or movement speeds with the same timed playtest. Explain one setting's effect using results; use the reliable Mission if the repeated version is unstable.
 
-**Likely mistakes and hints:** Both directions use +5; inspect signs. A pause after the loop cannot show intermediate steps. The loop count is mistaken for a destination coordinate; trace a three-step example. Repeated button presses can cause overlapping patrol runs; test with one press and wait for completion. A press-in-progress lock can be an optional condition-based repair using Week 5's state idea.
+**Likely mistakes and hints:** Score reset in overlap prevents accumulation; initialise in startup. Setting score to 1 differs from adding 1. Random means within chosen limits; margins must accommodate the image size. A random spawn can start on Player; an immediate collection is possible, so use fixed separated positions when diagnosing the score rule.
 
-**Support and backup:** Provide the outward loop and ask for the inverse return. During an outage, students act as robots on a paper grid while a partner reads loop cards.
+**Support and backup:** Keep a fixed Food position until scoring is understood, then add randomness with help. Unplugged: choose coordinates using dice and update a score card on collection.
 
-**Exit evidence:** Predict the result of six steps of +4 from x 30. Save `B_W06_RobotPatrol_ID`. Optional mission: design a path on graph paper.
+**Exit evidence:** Explain where score begins and when it changes. Save `B_W05_CherryCollector_ID`.
 
-**Resource:** [Loops Intro](https://arcade.makecode.com/courses/csintro1/loops/intro), using its movement-and-repeat idea. The rectangle task is our extension of this idea.
+**Resources:** [Score](https://arcade.makecode.com/reference/info/change-score-by), [Random Sprite Location](https://arcade.makecode.com/courses/csintro1/motion/random), [Countdown](https://arcade.makecode.com/reference/info/start-countdown).
 
-**Teaching record:** Date ___ · Mission completed ___/27 · Accurate loop predictions ___ · Timing confusion ___ · Next adjustment ___
+**Teaching record:** Date ___ · Score rule understood ___ · Random bounds understood ___ · Relocation issues ___ · Week 6 changes ___
 
-## Week 7 Meteor dodge
+## Week 6 Robot patrol — repeat loops
 
-**Learning objective:** Use a repeated interval event to create hazards and explain how timing changes difficulty. Distinguish a fixed-count loop from an event that runs repeatedly while the game continues. Prerequisite: movement, collisions, life, randomness and repeat loops.
+**Learning objective:** Replace repeated position changes with a fixed-count loop and predict its result. Prerequisite: coordinates, sequence and pause. This is a short separate experiment; preserve the collector for Weeks 7–8.
 
-**Hook:** Show a dodge game first with one meteor every two seconds, then every half-second. Ask which single setting might explain the difference.
+**Hook:** A robot takes three equal steps. Must we copy the same instructions three times?
 
-**Prepare:** A Player spaceship with button movement and stay-in-screen; life 3. Introduce two API blocks as the new tools: `on game update every 1000 ms` and a projectile created from the side with vx 0 and vy 40. Explain that the projectile already moves and is automatically removed off screen. Keep the core to these two new tools.
+**Prepare:** One robot at x 30, y 60, without controller movement or stay-in-screen clamping that would obscure endpoint arithmetic. Show three copies of change x by 5 → pause 200 ms. Keep every route inside the screen.
 
 ### The 60 minute plan
 
-- **0–5:** Run the two versions and ask for a difficulty prediction.
-- **5–12:** Inside the interval event create a projectile with vx 0, vy 40, then set its position to random x 10–150 and y 0. Run to see falling hazards. Show Player–Projectile overlap: destroy `otherSprite`, then subtract one life.
-- **12–30:** Build falling meteors, then movement, then life loss. Set a 30-second countdown on startup. The Mission is surviving until the countdown ends; the default countdown ending is enough, without requiring a new win handler.
-- **30–50:** Ladder and paired playtests. Compare one setting at a time.
-- **50–57:** Students explain why a repeat-10 loop creates a finite batch and an interval event keeps creating hazards throughout play.
-- **57–60:** Save with one chosen difficulty setting.
+- **0–10:** Predict the three-step endpoint and run the long version.
+- **10–18:** Replace the three copies with `repeat 3 times` containing change x by 5 and pause 200 ms, inside A pressed.
+- **18–35:** Mission: A resets to x 30, y 60, then repeats six steps of +5 x. Predict x 60 before testing.
+- **35–47:** Optional ladder; change one of count, step size or pause at a time.
+- **47–54:** Partner predicts a new endpoint. Remove the pause in a teacher copy to compare visible and near-instant movement.
+- **54–60:** Save and verify.
 
 ### Student challenge ladder
 
-- **Mission:** Move to avoid meteors that appear every second; a hit removes one meteor and one life. Success: two separate hits reduce life from 3 to 1, without one meteor draining all lives.
-- **Upgrade:** Tune interval and speed so a partner can survive about 20–30 seconds. State which change made survival easier.
-- **Challenge:** Inside each interval, use `repeat 2 times` to create two meteors with separate random x positions. Increase the interval if needed to keep the game playable.
-- **Boss:** Combine the shield rule from Week 5 with the dodge game. A protected hit consumes the shield instead of life; an unprotected hit removes life. Demonstrate both cases and ensure the colliding projectile is destroyed in either case.
+- **Mission:** One A press resets the robot and runs six 5-pixel rightward steps with pauses. Explain count × step size and the endpoint x 60.
+- **Upgrade:** Add six steps of -5 x to return to x 30.
+- **Challenge:** Change step count or size, predict the furthest position, then test an out-and-back route.
+- **Boss:** Use consecutive loops to make a rectangle returning to its start; explain why opposite changes cancel. No nested loop is needed.
 
-**Likely mistakes and hints:** Meteor creation is outside the interval, producing only one. The overlap event checks Enemy instead of Projectile. One projectile remains touching the Player; destroy the event's `otherSprite` first. Very fast spawning creates an unfair game; restore 1000 ms and 40 pixels per second before tuning.
+**Likely mistakes and hints:** Pause outside the loop hides intermediate steps. Both directions positive prevents return. Rapid A presses can start overlapping sequences; press once and wait for the patrol to finish. A lock variable is deferred.
 
-**Support and backup:** Supply the interval and projectile creation so the student adds collision logic and tests it. During an outage, a student dealer introduces paper hazards every few seconds; compare fixed batches with a continuing timer.
+**Support and backup:** Provide the loop container and ask students to adjust its count and predict. Unplugged: a student robot follows repeat cards on a grid.
 
-**Exit evidence:** Explain what changing 1000 ms to 2000 ms does. Save `B_W07_MeteorDodge_ID`. Optional mission: write a fair-game rule and an unfair-game rule.
+**Exit evidence:** Predict six +4 steps from x 30. Save `B_W06_RobotPatrol_ID`.
 
-**Resources:** [Update Interval reference](https://arcade.makecode.com/reference/game/on-update-interval) and [Overlap reference](https://arcade.makecode.com/reference/sprites/on-overlap). These support our original dodge activity; the [Intro CS course](https://arcade.makecode.com/courses/csintro1) provides related projectile lessons for later exploration.
+**Resource:** [Loops Intro](https://arcade.makecode.com/courses/csintro1/loops/intro).
 
-**Teaching record:** Date ___ · Mission completed ___/27 · Can distinguish repeat and interval ___ · Difficulty issues ___ · Week 8 changes ___
+**Teaching record:** Date ___ · Mission completed ___ · Endpoint predictions ___ · Pause placement support ___ · Week 7 readiness ___
 
-## Week 8 Arcade showcase
+## Week 7 Treasure goal — conditions
 
-**Learning objective:** Plan a small game, combine known ideas, test it against stated rules and make one evidence-based improvement. This is a project checkpoint, with no required new concept.
+**Learning objective:** Use `if/else` to select a response based on score. Prerequisite: score and button events. Use familiar game state before introducing a custom shield variable.
 
-**Hook:** Offer two briefs: “Collect treasure before time runs out” or “Survive falling meteors”. Students choose a game and one personal twist.
+**Hook:** B says “Find the treasure” before collection and “Mission complete” afterwards. The same button gives two outcomes: what value decides?
 
-**Prepare:** Working minimal starters from Weeks 3 and 7, a short planning template and an acceptance checklist. Students may remix an existing project or build from a starter; a blank project is optional for confident students. Avoid tilemaps or new features that would use the whole lesson.
+**Prepare:** Reopen the reliable Week 5 collector: one Food, destroyed on collection, score +1. Retain movement and A speech. Replace B's old return/help action deliberately with the status check. No repeat loop is required in this game.
 
 ### The 60 minute plan
 
-- **0–5:** Show the two briefs and explain the minimum playable version.
-- **5–12:** Students write three game rules and choose their starter. Teacher models one small plan and one test, without giving a new full build. First win is the starter running and one personalised change.
-- **12–30:** Build the Mission and run after every rule change. Ask students to explain where their state changes.
-- **30–45:** Ladder work and paired testing. Reserve the final five minutes of this block for fixing one reported issue.
-- **45–54:** Show three 60–90-second demos. Other students test in pairs rather than waiting for every project to be presented.
-- **54–57:** Students answer the checkpoint questions and write one next-module wish.
-- **57–60:** Save, export and cloud-upload the backup. Do not let showcase time consume the save ritual.
+- **0–10:** Test score 0 on restart and score 1 after collection. Repair the collector before adding logic.
+- **10–18:** In B pressed add `if score >= 1`: Player says “Mission complete”; `else`: Player says “Find the treasure”. Predict both branches.
+- **18–35:** Complete the Mission; test B before and after collection, then restart and test again.
+- **35–47:** Optional ladder and partner tests. Explain that B checks the current score at the moment it is pressed.
+- **47–54:** Debug a status check accidentally placed only in startup. Ask individuals to explain which branch runs and why.
+- **54–60:** Save and verify.
 
 ### Student challenge ladder
 
-- **Mission:** Make either a collector with score and a countdown, or a dodge game with life and repeated hazards. Include working controls and a short instruction message. Success: a partner can start, play and describe how the game ends.
-- **Upgrade:** Add one taught feature: a second button action, a shield, or a change to spawn timing. Test it before adding more art.
-- **Challenge:** Write three acceptance tests, ask a partner to run them, then fix one problem. Include a test that intentionally checks an edge case such as an unprotected hit or repeated collection.
-- **Boss:** Create two balanced difficulty versions and justify the differences using playtest results. All features must use concepts from Weeks 1–7.
+- **Mission:** B gives the correct status at score 0 and score 1; restart restores the incomplete status. Explain the condition and both outcomes.
+- **Upgrade:** Each branch sets a matching background colour as well as its message.
+- **Challenge:** Use a teacher-prepared three-treasure starter: three Food sprites at fixed, separated positions; overlap destroys the touched `otherSprite` and adds 1. Change the goal to score >= 3; test scores 0, 2 and 3. Demonstrate extra sprite creation/references before this extension.
+- **Boss:** Write and run a test table for below, at and above the goal. Use a teacher test copy with adjustable startup score if the one-treasure game cannot reach those values; restore normal score 0 afterwards.
 
-**Acceptance checks:** Controls respond; score or life changes according to the stated rules; the ending works; each tested collision affects the correct sprite; the latest project can be reopened after saving. Students record expected and actual results rather than just “works”.
+**Likely mistakes and hints:** A condition checked only at startup cannot give current status later; move it into B. Swapped branches; trace score 0. A response outside the condition can overwrite the chosen message; put the intended speech inside its branch.
 
-**Checkpoint questions:** Which event starts your main rule? Which value changes? Where do you use repetition or a condition, if your game has one? What failed in testing, and how did you improve it? For a collector without conditions, assess that student's condition knowledge using the Week 5 shield example separately.
+**Support and backup:** Supply the condition container and let students build two short responses. If score remains unclear, repair that first and use paper score cards for branch predictions; unfinished conditions become the next module's starting point.
 
-**Support and backup:** Cut the personal twist and complete a working starter with one student-made rule change. For an outage, storyboard the game and act out three turns using score/life counters; carry the build into the next meeting.
+**Exit evidence:** Predict B at score 0 and 1. Save `B_W07_TreasureGoal_ID`.
 
-**Exit evidence:** Save `B_W08_Showcase_ID`, its backup and three tests. Optional mission: plan a feature for the next module without introducing it into today's build.
+**Resources:** [If blocks](https://arcade.makecode.com/blocks/logic/if), [Score value](https://arcade.makecode.com/reference/info/score).
 
-**Resources:** [Cherry Pickr](https://arcade.makecode.com/lessons/cherry-pickr), [Touch the Button review](https://arcade.makecode.com/courses/csintro1/review/touch-the-button), and the [Intro CS course index](https://arcade.makecode.com/courses/csintro1). Use them as references for chosen mechanics.
+**Teaching record:** Date ___ · Both branches tested ___ · Independent predictions ___ · Score gaps ___ · Week 8 adjustments ___
 
-**Teaching record:** Date ___ · Playable projects ___/27 · Independent explanations ___ · Main gaps ___ · Student interests ___ · Week 9 priority ___
+## Week 8 Character adventure showcase — second checkpoint
+
+**Learning objective:** Combine familiar ideas into a small playable project, test stated rules and make one evidenced improvement. No required new concept.
+
+**Hook:** Turn the familiar character and treasure into a tiny adventure another student can understand and finish.
+
+**Prepare:** Working Week 4 and Week 7 starters. Students remix their own project or use a recovery starter; a blank build is optional. Offer two achievable briefs: find one treasure with a success message, or collect treasure with score and a B status check. No tilemap, projectile or interval event is required.
+
+### The 60 minute plan
+
+- **0–10:** Choose a brief and write three rules: controls, what happens on collection, how the player knows they finished.
+- **10–18:** Reopen the chosen project and make one personal change; agree expected tests before building.
+- **18–35:** Complete the Mission and run after every behaviour change.
+- **35–47:** Partner tests three rules; creator repairs one issue or improves one unclear instruction and retests.
+- **47–54:** Three short demos while others test in pairs. Ask individual checkpoint questions.
+- **54–60:** Save, export/upload backup and record next-module needs.
+
+### Student challenge ladder
+
+- **Mission:** A character adventure with movement, one collectible, a visible completion response and clear instructions. A partner can start, play and describe completion. Keep the smaller Week 4 brief valid for students needing consolidation.
+- **Upgrade:** Add or refine the taught score and B condition from Week 7.
+- **Challenge:** Record three expected/actual tests including restart and collection, then make and retest one improvement.
+- **Boss:** Compare two versions differing in one taught setting; use partner results to justify the final choice. A repeat-loop celebration is optional only if it works and remains understandable.
+
+**Acceptance checks:** Movement responds; the intended Food disappears on contact; completion is readable; score/status follows the selected brief; restart restores the initial state; the latest saved change can be reopened.
+
+**Checkpoint questions:** Which event causes collection? What changes after it? How did you prove your fix worked? Predict a coordinate change. Check conditions with Week 7's score example and loops with Week 6's robot example separately when the chosen project omits them. Do not mistake absent optional features for missing understanding.
+
+**Support and backup:** Keep the smaller brief and supply working movement. In an outage, storyboard and act out three tests; resume the build next meeting.
+
+**Exit evidence:** Save `B_W08_CharacterAdventure_ID`, backup and three tests.
+
+**Resources:** [Overlap reference](https://arcade.makecode.com/reference/sprites/on-overlap), [Intro CS course index](https://arcade.makecode.com/courses/csintro1) for later teacher preparation.
+
+**Teaching record:** Date ___ · Playable projects ___ · Independent explanations ___ · Main gaps ___ · Student interests ___ · Week 9 priority ___
+
 
 ## Progress tracking and next module decisions
 
@@ -364,9 +376,10 @@ Use one record per student. Mark **S** for seen, **H** for can use with help, **
 Duplicate rows for the class. At Weeks 4 and 8, review patterns:
 
 - If events or score remain unclear, use another collection remix before adding more systems.
-- If conditions need practice, start Week 9 with shield predictions and two-outcome rules.
+- If conditions need practice, start Week 9 with the familiar score/status predictions before introducing a custom shield variable.
 - If students can explain repetition and debug independently, proceed toward functions and decomposing larger games.
 - If saving fails, repair that workflow before starting projects that span several meetings.
+- Introduce custom state, life, projectiles and repeated interval events in later lessons only when students can explain the relevant prerequisites. Keep the deferred shield and meteor ideas as future options, not a fixed Week 9 checklist.
 - If only a few students need reinforcement, provide a small starter clinic while others extend a familiar game. Do not use fast finishers as permanent substitute teachers.
 
 ## Estonian vocabulary support
@@ -389,9 +402,10 @@ Translate task explanations when necessary, while keeping block names recognisab
 | Version and date | Lesson or decision | What changed | Evidence or reason |
 |---|---|---|---|
 | 1.0 · 4 October 2026 | First eight lessons | Initial classroom plan | Agreed group size, timing and persistence constraints |
+| 1.1 · 13 October 2026 | Weeks 2–8 after Lesson 1 | Continue the character; consolidate in Week 2; separate coordinates, overlap and score; simplify conditions; defer shields and meteors; add Week 2 teacher reference | Most students reached sprite/movement/speech and A with a pause; actual coverage was smaller than planned |
 | ___ | ___ | ___ | ___ |
 | ___ | ___ | ___ | ___ |
 
 ## Resource notes
 
-Official MakeCode pages were checked during preparation on 4 October 2026 in the teacher's timezone. Online lessons and interfaces can change; rehearse the relevant section before class. Our timings, challenge ladders and adjustment rules are teaching recommendations, not claims made by Microsoft. The linked materials supplement this document; the core instructions above remain usable if a tutorial changes.
+Initial resources were checked during preparation on 4 October 2026. Movement, stay-in-screen, position and overlap references were checked again for this revision on 13 October 2026 in the teacher's timezone. Rehearse all lesson-specific blocks and recovery starters before class; no classroom demo or browser save workflow is claimed to have been tested by this document revision. Our timings, challenge ladders and adjustment rules are teaching recommendations, not claims made by Microsoft. The linked materials supplement this document; the core instructions remain usable if a tutorial changes.

@@ -16,13 +16,13 @@ A small Jekyll documentation site with automatic sidebar navigation, responsive 
 
 - Edit `docs/_config.yml` to change the site title and description.
 - Edit `docs/index.md` for your home page.
-- Add Markdown files with front matter containing `title` and `nav_order`. Follow `docs/getting-started.md`.
+- Add Markdown files with front matter containing `title` and `nav_order`, following the existing student lesson pages.
 - Leave out `nav_order` to hide a page from the sidebar while keeping its URL available.
 - Use the `relative_url` filter for links and images; GitHub Pages supplies the repository base path.
 - Do not add `.nojekyll`: this site needs Jekyll to convert Markdown to HTML.
 
 ## Verification
 
-The starter has not been built locally. After publishing, confirm the Pages deployment succeeds, open the home page, and check the Getting started link and sidebar. Deployment details are available in the repository's Actions tab.
+After publishing, confirm the Pages deployment succeeds, open the home page, and check the course lesson links and sidebar. Deployment details are available in the repository's Actions tab.
 
 Official setup reference: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
