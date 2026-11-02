@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | escape }} · {{ site.title | escape }}</title>
     <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <script src="{{ '/assets/theme.js' | relative_url }}"></script>
     <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   </head>
   <body>
@@ -20,6 +21,7 @@
           {% endif %}
         {% endfor %}
       </nav>
+      <button class="theme-toggle" type="button" aria-pressed="false" hidden>Dark mode</button>
     </aside>
     <main id="content">{{ content }}</main>
   </body>
