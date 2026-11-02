@@ -1,5 +1,5 @@
 title: Introduction to Programming
-description: MakeCode Arcade and Python course lessons
+description: Python quick reference · Pythoni meelespea
 markdown: kramdown
 defaults:
   - scope:
@@ -8,3 +8,12 @@ defaults:
       layout: default
 exclude:
   - README.md
+  # Keep previous course materials in the repository, but off the live site.
+  - index.md
+  - beginners
+  - intermediates/week-1.md
+  - intermediates/week-2.md
+  - intermediates/Intermediate_Week_1_Teacher_Reference.md
+  - intermediates/Intermediate_Week_2_Teacher_Reference.md
+  - intermediates/Intermediate_Python_Curriculum_Weeks_1-8.md
+  - intermediates/HelloScript.py

@@ -16,6 +16,8 @@ Create games with the **Blocks editor**. Start with characters, movement and but
 
 ## Intermediate: Python
 
+**Python quick reference / Pythoni meelespea:** [English]({{ '/intermediates/python-reference-en.html' | relative_url }}) · [Eesti]({{ '/intermediates/python-reference-et.html' | relative_url }}) — short examples and help with common code issues.
+
 Write interactive text programs in **Python**. Practise variables, input, output and reusable functions, then build a shop, password checker and quiz while learning calculations, decisions and repetition. Finish the first eight lessons by improving and sharing a familiar project.
 
 <a href="{{ '/intermediates/HelloScript.py' | relative_url }}" download="HelloScript.py">Download the baseline Python script (HelloScript.py)</a>. Save it to your course folder and open it in your Python editor.
